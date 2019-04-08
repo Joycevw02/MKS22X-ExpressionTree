@@ -45,10 +45,15 @@ public class ExpressionTree{
   /*return the value of the specified expression tree*/
 
   public double evaluate(){
-    /*you are to write this method*/
-    return 0.0;
-
+    //If it is a value, return the value
+    if (isValue()){
+      return getValue();
     }
+    //Else, call apply function on the operator, the left value, and the right value
+    else{
+      return apply(getOp(), getLeft().evaluate(), getRight().evaluate());
+    }
+  }
 
 
   /*use the correct operator on both a and b, and return that value*/
