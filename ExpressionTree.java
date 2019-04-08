@@ -30,8 +30,14 @@ public class ExpressionTree{
   /* The sample tree would be: "+ 3 * 2 10"     */
 
   public String toStringPrefix(){
-    /*you are to write this method*/
-    return "";
+    //If it is a value, return the value
+    if (isValue()){
+      return "" + getValue();
+    }
+    //Else, return the operator, the left value, and the right value
+    else{
+      return getOp() + " " + getLeft().toStringPrefix() + " " + getRight().toStringPrefix();
+    }
   }
 
 
